@@ -1,7 +1,7 @@
 # Urban Routes — QA de Diseño, Validación de Formularios y Lógica de Reserva
 
 ![Status](https://img.shields.io/badge/status-completado-success)
-![Casos de prueba](https://img.shields.io/badge/casos%20ejecutados-218-blue)
+![Casos de prueba](https://img.shields.io/badge/casos%20ejecutados-225-blue)
 ![Bugs encontrados](https://img.shields.io/badge/bugs%20documentados-23-red)
 ![Browsers](https://img.shields.io/badge/cross--browser-Chrome%20%7C%20Firefox-orange)
 ![Método](https://img.shields.io/badge/método-clases%20de%20equivalencia%20%7C%20valores%20límite-9cf)
@@ -27,6 +27,16 @@ Ejecuté **218 verificaciones** distribuidas en 4 frentes de prueba, documentand
 | 4 | Casos de prueba — lógica de reserva con campos vacíos | 4 casos formales | 0* | Casos de prueba estructurados |
 
 *La hoja 4 incluye casos bloqueados por dependencias de bugs previos en el flujo.
+
+### Sprint 2 — Diseño previo y validación de licencia de conducir
+
+Antes de ejecutar las pruebas, diseñé el mapa mental y el diagrama de flujo que sirvieron de base para los casos de prueba:
+
+- **Mapa mental — "Agregar licencia de conducir"**: descompone la ventana emergente en interfaz y funcionalidad, cubriendo clases de equivalencia para nombre, apellido (2-14 caracteres, solo alfabeto latino, tipos de guion permitidos), fecha de nacimiento (formato dd.mm.aaaa con rangos válidos 1880-2006) y número de licencia (formato nn nnnnnn), además del comportamiento esperado de los botones "Agregar", "Cancelar" y "X".
+- **Diagrama de flujo — Velocidad promedio según hora del día**: modela la lógica que determina la velocidad de cálculo (45, 30, 40, 25, 45 km/h) según 5 franjas horarias, incluyendo el caso de hora inválida.
+- **7 casos de prueba formales** que validan el cálculo de tiempo y costo del viaje cruzando cada franja horaria del diagrama de flujo contra una distancia real (3.2 Km) y el caso límite de distancia 0 Km.
+
+Estos artefactos de diseño completan la trazabilidad inversa del proyecto: **diagrama → caso de prueba → ejecución → bug** (cuando aplica).
 
 ### Cobertura cross-browser
 
@@ -65,7 +75,11 @@ De los 23 bugs documentados, clasificados por severidad real asignada en cada re
 ```
 urban-routes-qa/
 ├── checklists/
-│   └── checklists-y-casos-de-prueba.xlsx     # Archivo fuente completo (4 hojas)
+│   ├── checklists-y-casos-de-prueba.xlsx                    # Sprint 1: diseño, pagos, lógica de reserva (4 hojas)
+│   └── clases-equivalencia-y-casos-prueba-sprint2.xlsx       # Sprint 2: licencia de conducir y cálculo de viaje (3 hojas)
+├── diseno-mapas-mentales-y-diagramas/
+│   ├── mapa-mental-licencia-conducir.png                     # Mapa mental: interfaz y funcionalidad del formulario
+│   └── diagrama-flujo-velocidad-promedio.png                 # Diagrama de flujo: lógica de velocidad por hora del día
 ├── evidencias/
 │   └── capturas-errores/
 │       ├── ERROR-1-reporte-jira.png / ERROR-1-evidencia-navegadores.png
@@ -80,7 +94,7 @@ Cada bug cuenta con: descripción del problema, pasos de reproducción, resultad
 
 ## Stack y herramientas
 
-`Excel` `Jira` `Google Chrome DevTools` `Diseño/especificación visual` `Pruebas cross-browser`
+`Excel` `Jira` `Google Chrome DevTools` `draw.io` `Diseño/especificación visual` `Pruebas cross-browser` `Mapas mentales` `Diagramas de flujo`
 
 ## Sobre este proyecto
 
